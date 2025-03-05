@@ -1,0 +1,68 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.whl
+*.tar.gz
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as far as git is concerned,
+#  they should be treated as generated.
+*.spec
+# PyInstaller aside, these are generally generated files
+# that git should ignore.
+bld/
+build/
+dist/
+
+# IDE / text editor
+.idea/
+.vscode/
+*.iml
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environments
+.env
+venv/
+env/
+ENV/
+*.swp
+
+# Bash
+*.sh.swp
+*.bash.swp
+
+#Cloud Function
+.gcloudignore
+
+# Temporary files
+*~
+*.tmp
+tmp/
