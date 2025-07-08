@@ -3,12 +3,14 @@
 PROJECT_ID=$(gcloud config get-value project)
 
 # Define environment variables
-ZONE_NAME="REPLACE_WITH_ZONE_NAME"
-DNS_NAME="REPLACE_WITH_DNS_NAME"
-CNAME_TARGET="REPLACE_WITH_CNAME_TARGET"
+# These variables should be set in your environment before running the script.
+: "${ZONE_NAME:?Environment variable ZONE_NAME must be set}"
+: "${DNS_NAME:?Environment variable DNS_NAME must be set}"
+: "${CNAME_TARGET:?Environment variable CNAME_TARGET must be set}"
+: "${FUNCTION_NAME:?Environment variable FUNCTION_NAME must be set}"
 
 # Deploy the Cloud Function
-gcloud functions deploy update-dns-records \
+gcloud functions deploy "$FUNCTION_NAME" \
     --source ../function/ \
     --region us-central1 \
     --entry-point update_dns_records \
