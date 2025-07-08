@@ -20,4 +20,5 @@ gcloud functions deploy "$FUNCTION_NAME" \
     --gen2 \
     --ingress-settings=internal-only \
     --service-account="dns-updater-sa@$PROJECT_ID.iam.gserviceaccount.com" \
+    --no-allow-unauthenticated \
     --set-env-vars="PROJECT_ID=$PROJECT_ID,ZONE_NAME=$ZONE_NAME,DNS_NAME=$DNS_NAME,CNAME_TARGET=$CNAME_TARGET"
