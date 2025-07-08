@@ -79,8 +79,9 @@ graph LR
         *   HTTP target (pointing to the Cloud Function's URL).
         *   POST method.
         *   OIDC authentication (using the `scheduler-invoker-sa` service account).
-    * **Schedule**
-        *  0 * * * * (every hour)
+    * **Schedule:**
+        *   Configurable via the `JOB_INTERVAL_MINUTES` environment variable in `scheduler.sh`.
+        *   Defaults to every 60 minutes if not set.
 
 4.  **Service Accounts:**
 
