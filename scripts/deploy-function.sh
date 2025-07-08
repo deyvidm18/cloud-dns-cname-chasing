@@ -8,11 +8,12 @@ PROJECT_ID=$(gcloud config get-value project)
 : "${DNS_NAME:?Environment variable DNS_NAME must be set}"
 : "${CNAME_TARGET:?Environment variable CNAME_TARGET must be set}"
 : "${FUNCTION_NAME:?Environment variable FUNCTION_NAME must be set}"
+: "${REGION:?Environment variable REGION must be set}"
 
 # Deploy the Cloud Function
 gcloud functions deploy "$FUNCTION_NAME" \
     --source ../function/ \
-    --region us-central1 \
+    --region $REGION \
     --entry-point update_dns_records \
     --runtime python310 \
     --build-service-account="projects/$PROJECT_ID/serviceAccounts/cloud-build-sa@$PROJECT_ID.iam.gserviceaccount.com" \

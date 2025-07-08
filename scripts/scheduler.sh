@@ -6,7 +6,7 @@ PROJECT_ID=$(gcloud config get-value project)
 # These variables should be set in your environment before running the script.
 : "${CLOUD_FUNCTION_URL:?Environment variable CLOUD_FUNCTION_URL must be set}"
 : "${JOB_NAME:?Environment variable JOB_NAME must be set}"
-: "${JOB_LOCATION:?Environment variable JOB_LOCATION must be set}"
+: "${REGION:?Environment variable REGION must be set}"
 
 # Define the job schedule interval in minutes. Defaults to 60 minutes (hourly).
 JOB_INTERVAL_MINUTES=${JOB_INTERVAL_MINUTES:-60}
@@ -24,7 +24,7 @@ if [ -z "$JOB_EXISTS" ]; then
   echo "Creating Cloud Scheduler job: $JOB_NAME"
   gcloud scheduler jobs create http "$JOB_NAME" \
       --schedule="$JOB_SCHEDULE" \
-      --location="$JOB_LOCATION" \
+      --location="$REGION" \
       --http-method=POST \
       --uri="$CLOUD_FUNCTION_URL" \
       --oidc-service-account-email="$SERVICE_ACCOUNT_EMAIL"
